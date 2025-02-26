@@ -1,0 +1,25 @@
+import java.util.Random;
+
+public class EvenOddCount {
+    public static void main(String[] args) {
+        int size = 20; // Розмір масиву
+        int[] array = new int[size];
+        Random random = new Random();
+
+        int evenCount = 0, oddCount = 0;
+
+        System.out.print("Масив: ");
+        for (int i = 0; i < size; i++) {
+            array[i] = random.nextInt(100); // Генеруємо числа від 0 до 99
+            System.out.print(array[i] + " ");
+            if (array[i] % 2 == 0) {
+                evenCount++;
+            } else {
+                oddCount++;
+            }
+        }
+
+        System.out.println("\nПарних чисел: " + evenCount);
+        System.out.println("Непарних чисел: " + oddCount);
+    }
+}
