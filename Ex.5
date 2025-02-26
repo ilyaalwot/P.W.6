@@ -1,0 +1,45 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class ArrayOrderCheck {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        System.out.print("Введіть розмір масиву: ");
+        int size = scanner.nextInt();
+        int[] array = new int[size];
+
+        System.out.print("Масив: ");
+        for (int i = 0; i < size; i++) {
+            array[i] = random.nextInt(100);
+            System.out.print(array[i] + " ");
+        }
+
+        System.out.print("\nПеревіряти зростання чи спадання? (1 - зростання, 2 - спадання): ");
+        int choice = scanner.nextInt();
+
+        boolean ordered = true;
+        if (choice == 1) {
+            for (int i = 0; i < size - 1; i++) {
+                if (array[i] > array[i + 1]) {
+                    ordered = false;
+                    break;
+                }
+            }
+            System.out.println(ordered ? "Масив є зростаючим." : "Масив НЕ є зростаючим.");
+        } else if (choice == 2) {
+            for (int i = 0; i < size - 1; i++) {
+                if (array[i] < array[i + 1]) {
+                    ordered = false;
+                    break;
+                }
+            }
+            System.out.println(ordered ? "Масив є спадним." : "Масив НЕ є спадним.");
+        } else {
+            System.out.println("Неправильний вибір.");
+        }
+
+        scanner.close();
+    }
+}
